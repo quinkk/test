@@ -5,7 +5,7 @@ services:
         image: kkstudio/test:latest
         ports:
             - "3000:80"
-        environment:
+        #environment:
            # - MONGODB_ADDON_URI=mongodb://mongodb:27017/test
     mongodb:
         image: mongo:latest
