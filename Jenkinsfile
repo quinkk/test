@@ -5,7 +5,7 @@ pipeline {
     }
 
     environment {
-        image = "kkstudio/nodejs"
+        image = "kkstudio/test"
         registry = "docker.io"
     }
 
