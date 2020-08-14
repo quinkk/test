@@ -1,34 +1,14 @@
-nginx:
-    image: nginx:latest
-    ports:
-      - '80:80'
-    volumes:
-      - ./nginx:/etc/nginx/conf.d
-      - ./logs/nginx:/var/log/nginx
-      - ./wordpress:/var/www/html
-    links:
-      - wordpress
-    restart: always
-  mysql:
-    image: mariadb
-    ports:
-      - '3306:3306'
-    volumes:
-      - ./db-data:/var/lib/mysql
-    environment:
-      - MYSQL_ROOT_PASSWORD=xxxxxx
-    restart: always
-  wordpress:
-    image: wordpress
-    ports:
-      - '9000:9000'
-    volumes:
-      - ./wordpress:/var/www/html
-    environment:
-      - WORDPRESS_DB_NAME=wp_db
-      - WORDPRESS_TABLE_PREFIX=wp_
-      - WORDPRESS_DB_HOST=mysql
-      - WORDPRESS_DB_PASSWORD=xxxxxx
-    links:
-      - mysql
-    restart: always
+version: '3'
+
+services:
+    web-node-js:
+        image: kkstudio/test:latest
+        ports:
+            - "3000:80"
+        #environment:
+           # - MONGODB_ADDON_URI=mongodb://mongodb:27017/test
+    mongodb:
+        image: mongo:latest
+        ports: 
+            - "27017:27017"
+        
